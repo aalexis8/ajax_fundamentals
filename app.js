@@ -1,31 +1,33 @@
-document.querySelector(".get-jokes").addEventListener("click", getJokes);
+// Working with callbacks
 
-function getJokes(e) {
-  const number = document.querySelector("input[type='number']").value;
+// document.querySelector(".get-jokes").addEventListener("click", getJokes);
 
-  const xhr = new XMLHttpRequest();
+// function getJokes(e) {
+//   const number = document.querySelector("input[type='number']").value;
 
-  xhr.open("GET", `http://api.icndb.com/jokes/random/${number}`, true);
+//   const xhr = new XMLHttpRequest();
 
-  xhr.onload = function () {
-    if (this.status === 200) {
-      const response = JSON.parse(this.responseText);
+//   xhr.open("GET", `http://api.icndb.com/jokes/random/${number}`, true);
 
-      let output = "";
+//   xhr.onload = function () {
+//     if (this.status === 200) {
+//       const response = JSON.parse(this.responseText);
 
-      if (response.type === "success") {
-        response.value.forEach(function (joke) {
-          output += `<li>${joke.joke}</li>`;
-        });
-      } else {
-        output += "<li>Something went wrong</li>";
-      }
+//       let output = "";
 
-      document.querySelector(".jokes").innerHTML = output;
-    }
-  };
+//       if (response.type === "success") {
+//         response.value.forEach(function (joke) {
+//           output += `<li>${joke.joke}</li>`;
+//         });
+//       } else {
+//         output += "<li>Something went wrong</li>";
+//       }
 
-  xhr.send();
+//       document.querySelector(".jokes").innerHTML = output;
+//     }
+//   };
 
-  e.preventDefault();
-}
+//   xhr.send();
+
+//   e.preventDefault();
+// }
